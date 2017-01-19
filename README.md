@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.svg" width="256" height="256" alt="mitt">
+  <img src="http://i.imgur.com/27kpcJJ.png" width="256" height="256" alt="tinytime">
   <br>
   <b>Tinytime</b>: A straightforward date and time formatter in <700b.
   <br>
