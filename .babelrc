@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    "syntax-flow",
+    "transform-flow-strip-types"
+  ],
+  "env": {
+    "production": {
+      "presets": [
+        ["es2015", { "modules": false }]
+      ]
+    },
+    "test": {
+      "presets": [
+        ["es2015"]
+      ]
+    }
+  }
+}

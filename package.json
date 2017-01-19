@@ -1,0 +1,28 @@
+{
+  "name": "tinytime",
+  "amdName": "tinytime",
+  "jsnext:main": "src/index.js",
+  "main": "dist/tinytime.js",
+  "umd:main": "dist/tinytime.umd.js",
+  "scripts": {
+    "rollup": "NODE_ENV=production rollup -c rollup.config.js -m -f cjs -n $npm_package_amdName $npm_package_jsnext_main -o $npm_package_main",
+    "minify": "uglifyjs $npm_package_main -cm toplevel -o $npm_package_main -p relative --in-source-map ${npm_package_main}.map --source-map ${npm_package_main}.map",
+    "build": "yarn rollup && yarn minify && gzip-size dist/tinytime.js | pretty-bytes",
+    "test": "NODE_ENV=test flow && jest"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-jest": "^18.0.0",
+    "babel-plugin-syntax-flow": "^6.18.0",
+    "babel-plugin-transform-flow-strip-types": "^6.21.0",
+    "babel-preset-es2015": "^6.18.0",
+    "flow-bin": "^0.38.0",
+    "gzip-size-cli": "^1.0.0",
+    "jest": "^18.1.0",
+    "pretty-bytes-cli": "^2.0.0",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-flow": "^1.1.1",
+    "uglify-js": "^2.7.5"
+  }
+}
