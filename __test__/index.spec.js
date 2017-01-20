@@ -1,7 +1,7 @@
 import tinytime from '../src'
 
 // My birthday!
-const date = new Date(717386850000)
+const date = new Date('September 24, 1992 021:07:30');
 
 // Helper function to render template with the same date.
 const render = template => tinytime(template).render(date)

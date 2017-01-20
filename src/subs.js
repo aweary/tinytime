@@ -17,7 +17,7 @@ export const Minutes = 'h';
 export const Seconds = 'i';
 export const PostOrAnteMeridiem = 'j';
 export const Day = 'k';
-export const DayOfTheMonth = 'i';
+export const DayOfTheMonth = 'l';
 
 
 const SubToTypeIdentifierMap: {
