@@ -12,33 +12,16 @@ Seconds,
 PostOrAnteMeridiem,
 UserText,
 Day,
+DayOfTheMonth,
 } from './subs';
 import type { Token } from './parser'
 
-
-type Days =
-  "Monday" |
-  "Tuesday" |
-  "Wednesday" |
-  "Thursday" |
-  "Friday" |
-  "Saturday" |
-  "Sunday"
-
-
-type Month = 
-  "January" |
-  "Febuary" |
-  "March" |
-  "April" |
-  "May" |
-  "June" |
-  "July" |
-  "August" |
-  "September" |
-  "October" |
-  "November" |
-  "December" 
+/**
+ * These types help ensure we don't misspell them anywhere. They will be
+ * removed during build.
+ */
+type Days = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday"
+type Month =  "January" | "Febuary" | "March" | "April" | "May" | "June" | "July" | "August" | "September" | "October" | "November" | "December" 
 
 const months: Array<Month> = [
   "January",
@@ -65,10 +48,17 @@ const days: Array<Days> = [
   "Sunday",
 ]
 
+/**
+ * Taks an integer and returns a string left padded with 
+ * a zero to the left. Used to display minutes and hours (1:01:00PM);
+ */
 function paddWithZeros(int: number) : string {
   return int < 10 ? '0' + int : '' + int;
 }
 
+/**
+ * Adds suffix to day, so 16 becomes 16th.
+ */
 function suffix(int: number): string {
     return (int % 10) == 1 && int != 11
       ? int  + "st"
@@ -80,7 +70,7 @@ function suffix(int: number): string {
 }
 
 export default function compiler(tokens: Array<Token>, date: Date): string {
-  const month = months[date.getMonth()];
+  const month = date.getMonth();
   const year = date.getFullYear();
   const hours = date.getHours();
   const seconds = date.getSeconds();
@@ -99,10 +89,10 @@ export default function compiler(tokens: Array<Token>, date: Date): string {
         compiled += suffix(day);
         break;
       case PartialMonth:
-        compiled += month.slice(0, 3);
+        compiled += months[month].slice(0, 3);
         break;
       case FullMonth:
-        compiled += month;
+        compiled += months[month];
         break;
       case FullYear:
         compiled += year;
@@ -112,6 +102,9 @@ export default function compiler(tokens: Array<Token>, date: Date): string {
         break;
       case DayOfTheWeek:
         compiled += days[date.getDay() - 1];
+        break;
+      case DayOfTheMonth:
+        compiled += day
         break;
       case Hour:
         compiled += hours === 0 ? 12 : hours % 12;
