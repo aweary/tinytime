@@ -4,13 +4,11 @@ const MINUTES = SECONDS * 60;
 const HOURS = MINUTES * 60;
 const DAYS = HOURS * 24;
 const WEEKS = DAYS * 7;
-const MONTHS = WEEKS * 4.34;
-
-const floor = x => Math.floor(x);
+const MONTHS = WEEKS * 4.345;
 
 function checkAndUpdate(result, property, time) {
   if (result.difference >= time) {
-    result[property] = floor(result.difference / time);
+    result[property] = Math.floor(result.difference / time);
      result.difference -= result[property] * time;
   }
 }
@@ -18,7 +16,7 @@ function checkAndUpdate(result, property, time) {
 /**
  * Diff takes two dates and returns an object describing the time
  * that has elapsed between them. This is not currently a supprted tinytime
- * feature but will be soon.
+ * feature, as this file isn't exported anymore. I'm not sure if it will be added.
  */
 export default function diff(a: Date, b: Date) {
   let difference = a - b | 0;
