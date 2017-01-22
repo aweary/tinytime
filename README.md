@@ -22,6 +22,22 @@ tinytime.render(new Date());
 // The time is 11:10:20PM.
 ```
 
+## Subsitutions
+
+### `MMMM` - Full Month (September)
+### `MM` - Partial Month (Sep)
+### `YYYY` - Full Year (1992)
+### `YY` - Partial Year (92)
+### `dddd` - Day of the Week (Monday)
+### `DD` - Day of the Month (24)
+### `Do` - Day (24th)
+### `mm` - Minutes (zero padded)
+### `ss` - Seconds (zero padded)
+### `a` - AM/PM
+
+
+## Efficiency
+
 tinytime takes an approach similar to a compiler and generates an AST representing your template. This AST is generated when
 you call the main `tinytime` function. This lets you efficiently re-render your template without tinytime having to parse the
 template string again. That means its important that you aren't recreating the template object frequently.
