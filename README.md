@@ -24,16 +24,16 @@ tinytime.render(new Date());
 
 ## Subsitutions
 
-### `MMMM` - Full Month (September)
-### `MM` - Partial Month (Sep)
-### `YYYY` - Full Year (1992)
-### `YY` - Partial Year (92)
-### `dddd` - Day of the Week (Monday)
-### `DD` - Day of the Month (24)
-### `Do` - Day (24th)
-### `mm` - Minutes (zero padded)
-### `ss` - Seconds (zero padded)
-### `a` - AM/PM
+ * `MMMM` - Full Month (September)
+ * `MM` - Partial Month (Sep)
+ * `YYYY` - Full Year (1992)
+ * `YY` - Partial Year (92)
+ * `dddd` - Day of the Week (Monday)
+ * `DD` - Day of the Month (24)
+ * `Do` - Day (24th)
+ * `mm` - Minutes (zero padded)
+ * `ss` - Seconds (zero padded)
+ * `a` - AM/PM
 
 
 ## Efficiency
