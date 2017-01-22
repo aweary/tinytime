@@ -17,9 +17,8 @@ takes a `Date` and returns a string with the rendered data.
 ```js
 
 import tinytime from 'tinytime';
-
 const template = tinytime('The time is {h}:{mm}:{ss}{a}.');
-const rendered = tinytime.render(new Date());
+tinytime.render(new Date());
 // The time is 11:10:20PM.
 ```
 
