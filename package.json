@@ -1,6 +1,6 @@
 {
   "name": "tinytime",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "amdName": "tinytime",
   "jsnext:main": "src/index.js",
   "main": "dist/tinytime.js",
