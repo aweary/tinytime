@@ -39,6 +39,11 @@ describe('tinytime', () => {
     it('times', () => {
       expect(render('{h}:{mm}:{ss}{a}')).toEqual('9:07:30PM');
     });
+    it('padded hours', () => {
+      const template = tinytime('{h}', { padHours: true })
+      const rendered = template.render(date)
+      expect(rendered).toEqual('09')
+    })
     it('user text with subsitutions', () => {
       expect(render(
         'It was {h}:{mm}:{ss}{a} on {MMMM} {Do}, {YYYY}.'

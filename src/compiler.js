@@ -15,6 +15,7 @@ Day,
 DayOfTheMonth,
 } from './subs';
 import type { Token } from './parser'
+import type { TinyTimeOptions } from './index'
 
 /**
  * These types help ensure we don't misspell them anywhere. They will be
@@ -69,7 +70,7 @@ function suffix(int: number): string {
       : int + "th";
 }
 
-export default function compiler(tokens: Array<Token>, date: Date): string {
+export default function compiler(tokens: Array<Token>, date: Date, options: TinyTimeOptions): string {
   const month = date.getMonth();
   const year = date.getFullYear();
   const hours = date.getHours();
@@ -107,7 +108,11 @@ export default function compiler(tokens: Array<Token>, date: Date): string {
         compiled += day
         break;
       case Hour:
-        compiled += hours === 0 || hours === 12 ? 12 : hours % 12;
+        let hour = hours === 0 || hours === 12 ? 12 : hours % 12;
+        if (options.padHours) {
+          hour = paddWithZeros(hour)
+        }
+        compiled += hour
         break;
       case Minutes:
         compiled += paddWithZeros(minutes);
