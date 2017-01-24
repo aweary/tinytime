@@ -8,6 +8,7 @@ type TinyTime = {
 
 export type TinyTimeOptions = {
   padHours?: boolean,
+  padDays?: boolean,
 }
 
 export default function tinytime(template: string, options: TinyTimeOptions = {}): TinyTime {

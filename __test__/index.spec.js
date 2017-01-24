@@ -35,7 +35,7 @@ describe('tinytime', () => {
     });
     it('day of the month', () => {
       expect(render('{Do}')).toEqual('24th');
-    })
+    });
     it('times', () => {
       expect(render('{h}:{mm}:{ss}{a}')).toEqual('9:07:30PM');
     });

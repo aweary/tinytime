@@ -105,7 +105,7 @@ export default function compiler(tokens: Array<Token>, date: Date, options: Tiny
         compiled += days[date.getDay() - 1];
         break;
       case DayOfTheMonth:
-        compiled += day
+        compiled += options.padDays ? paddWithZeros(day) : day
         break;
       case Hour:
         let hour = hours === 0 || hours === 12 ? 12 : hours % 12;
