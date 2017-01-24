@@ -107,7 +107,7 @@ export default function compiler(tokens: Array<Token>, date: Date): string {
         compiled += day
         break;
       case Hour:
-        compiled += hours === 0 ? 12 : hours % 12;
+        compiled += hours === 0 || hours === 12 ? 12 : hours % 12;
         break;
       case Minutes:
         compiled += paddWithZeros(minutes);
