@@ -1,13 +1,11 @@
-<p align="center">
-  <img src="http://i.imgur.com/27kpcJJ.png" width="256" height="256" alt="tinytime">
-  <br>
-  <b>Tinytime</b>: A straightforward date and time formatter in <700b.
-  <br>
-  <a href="https://www.npmjs.org/package/tinytime">
+
+# Tinytime ⏰ 
+> A straightforward date and time formatter in <800b.
+
+<a href="https://www.npmjs.org/package/tinytime">
     <img src="https://img.shields.io/npm/v/tinytime.svg?style=flat" alt="npm">
   </a> <a href="https://travis-ci.org/aweary/tinytime">
   <img src="https://travis-ci.org/aweary/tinytime.svg?branch=master" alt="travis"></a>
-</p>
 
 ## API
 
