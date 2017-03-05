@@ -70,6 +70,15 @@ function suffix(int: number): string {
       : int + "th";
 }
 
+/**
+ * The compiler takes in our array of tokens returned from the parser
+ * and returns the formed template. It just iterates over the tokens and
+ * appends some text to the returned string depending on the type of token.
+ * @param {Array<Tokens>} tokens 
+ * @param {Date} date 
+ * @param {TinyTimeOptions} options
+ * @returns {String}
+ */
 export default function compiler(tokens: Array<Token>, date: Date, options: TinyTimeOptions): string {
   const month = date.getMonth();
   const year = date.getFullYear();
