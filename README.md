@@ -16,7 +16,7 @@ takes a `Date` and returns a string with the rendered data.
 
 import tinytime from 'tinytime';
 const template = tinytime('The time is {h}:{mm}:{ss}{a}.');
-tinytime.render(new Date());
+template.render(new Date());
 // The time is 11:10:20PM.
 ```
 
