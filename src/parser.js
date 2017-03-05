@@ -27,11 +27,37 @@ export type Token = {
  */
 export default function parser(template: string): Array<Token> {
   const tokens: Array<Token> = []
+  /**
+   * We iterate through each character in the template string, and track
+   * the index of the character we're processing with `position`. We start
+   * at 0, the first character.
+   */
   let position = 0
+  /**
+   * `text` is used to accumulate what we call "UserText", or simply text that
+   * is not a subsitution. For example, in the template:
+   *  
+   *  "The day is {day}."
+   * 
+   * There are two instances of `UserText`, "The day is " and ".", which is the text
+   * befor eand after the subsitution. With this template our tokens would look something like:
+   * 
+   * [
+   *  { type: UserText, value: "The day is "},
+   *  { type : DaySub },
+   *  { type: UserText, value: "." }
+   * ]
+   * 
+   */
   let text = ''
   while (position < template.length) {
     let char = template[position++];
+    /**
+     * A bracket indicates we're starting a subsitution. Any characters after this,
+     * and before the next '}' will be considered part of the subsitution name.
+     */
     if (char === '{') {
+      // Push any `UserText` we've accumulated and reset the `text` variable.
       if (text) {
         tokens.push({
           t: UserText,
@@ -54,6 +80,10 @@ export default function parser(template: string): Array<Token> {
       text += char
     }
   }
+  /**
+   * We might have some text after we're done iterating through the template if
+   * the template ends with some `UserText`.
+   */
   if (text) {
     tokens.push({
       t: UserText,
