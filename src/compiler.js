@@ -7,6 +7,7 @@ FullYear,
 PartialYear,
 DayOfTheWeek,
 Hour,
+Hour24,
 Minutes,
 Seconds,
 PostOrAnteMeridiem,
@@ -22,7 +23,7 @@ import type { TinyTimeOptions } from './index'
  * removed during build.
  */
 type Days = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday"
-type Month =  "January" | "Febuary" | "March" | "April" | "May" | "June" | "July" | "August" | "September" | "October" | "November" | "December" 
+type Month =  "January" | "Febuary" | "March" | "April" | "May" | "June" | "July" | "August" | "September" | "October" | "November" | "December"
 
 const months: Array<Month> = [
   "January",
@@ -50,7 +51,7 @@ const days: Array<Days> = [
 ]
 
 /**
- * Taks an integer and returns a string left padded with 
+ * Taks an integer and returns a string left padded with
  * a zero to the left. Used to display minutes and hours (1:01:00PM);
  */
 function paddWithZeros(int: number) : string {
@@ -74,8 +75,8 @@ function suffix(int: number): string {
  * The compiler takes in our array of tokens returned from the parser
  * and returns the formed template. It just iterates over the tokens and
  * appends some text to the returned string depending on the type of token.
- * @param {Array<Tokens>} tokens 
- * @param {Date} date 
+ * @param {Array<Tokens>} tokens
+ * @param {Date} date
  * @param {TinyTimeOptions} options
  * @returns {String}
  */
@@ -122,6 +123,13 @@ export default function compiler(tokens: Array<Token>, date: Date, options: Tiny
           hour = paddWithZeros(hour)
         }
         compiled += hour
+        break;
+      case Hour24:
+        let hour24 = hours;
+        if (options.padHours) {
+          hour24 = paddWithZeros(hour24)
+        }
+        compiled += hour24
         break;
       case Minutes:
         compiled += paddWithZeros(minutes);

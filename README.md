@@ -1,5 +1,5 @@
 
-# Tinytime ⏰ 
+# Tinytime ⏰
 > A straightforward date and time formatter in <800b.
 
 <a href="https://www.npmjs.org/package/tinytime">
@@ -29,6 +29,8 @@ template.render(new Date());
  * `dddd` - Day of the Week (Monday)
  * `DD` - Day of the Month (24)
  * `Do` - Day (24th)
+ * `h` - Hours - 12h format
+ * `H` - Hours - 24h format
  * `mm` - Minutes (zero padded)
  * `ss` - Seconds (zero padded)
  * `a` - AM/PM

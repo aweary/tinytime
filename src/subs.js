@@ -18,7 +18,7 @@ export const Seconds = 'i';
 export const PostOrAnteMeridiem = 'j';
 export const Day = 'k';
 export const DayOfTheMonth = 'l';
-
+export const Hour24 = 'm';
 
 const SubToTypeIdentifierMap: {
   [abbreviation: string]: string
@@ -31,6 +31,7 @@ const SubToTypeIdentifierMap: {
   'DD': DayOfTheMonth,
   'Do': Day,
   'h': Hour,
+  'H': Hour24,
   'mm': Minutes,
   'ss': Seconds,
   'a': PostOrAnteMeridiem,
