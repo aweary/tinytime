@@ -29,8 +29,8 @@ template.render(new Date());
  * `dddd` - Day of the Week (Monday)
  * `DD` - Day of the Month (24)
  * `Do` - Day (24th)
- * `hh` - Hours - 12h format
- * `HH` - Hours - 24h format
+ * `h` - Hours - 12h format
+ * `H` - Hours - 24h format
  * `mm` - Minutes (zero padded)
  * `ss` - Seconds (zero padded)
  * `a` - AM/PM
