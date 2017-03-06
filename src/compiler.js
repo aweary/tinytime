@@ -8,6 +8,7 @@ FullYear,
 PartialYear,
 DayOfTheWeek,
 Hour,
+Hour24,
 Minutes,
 Seconds,
 PostOrAnteMeridiem,
@@ -130,6 +131,13 @@ export default function compiler(tokens: Array<Token>, date: Date, options: Tiny
           hour = paddWithZeros(hour)
         }
         compiled += hour
+        break;
+      case Hour24:
+        let hour24 = hours;
+        if (options.padHours) {
+          hour24 = paddWithZeros(hour24)
+        }
+        compiled += hour24
         break;
       case Minutes:
         compiled += paddWithZeros(minutes);
