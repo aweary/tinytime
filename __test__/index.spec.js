@@ -39,8 +39,17 @@ describe('tinytime', () => {
     it('times', () => {
       expect(render('{h}:{mm}:{ss}{a}')).toEqual('9:07:30PM');
     });
+    it('times (24h)', () => {
+      expect(render('{H}:{mm}:{ss}')).toEqual('21:07:30');
+    });
     it('padded hours', () => {
       const template = tinytime('{h}', { padHours: true })
+      const rendered = template.render(date)
+      expect(rendered).toEqual('09')
+    })
+    it('padded hours (24h)', () => {
+      const date = new Date('September 24, 1992 09:07:30');
+      const template = tinytime('{H}', { padHours: true })
       const rendered = template.render(date)
       expect(rendered).toEqual('09')
     })
