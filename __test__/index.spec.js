@@ -24,6 +24,14 @@ describe('tinytime', () => {
     it('partial months', () => {
       expect(render('{MM}')).toEqual('Sep');
     });
+    it('numeric months', () => {
+      expect(render('{Mo}')).toEqual('9');
+    });
+    it('padded numeric months', () => {
+      const template = tinytime('{Mo}', { padMonth: true })
+      const rendered = template.render(date);
+      expect(rendered).toEqual('09');
+    });
     it('full years', () => {
       expect(render('{YYYY}')).toEqual('1992');
     });

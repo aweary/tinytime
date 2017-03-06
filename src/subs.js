@@ -18,6 +18,7 @@ export const Seconds = 'i';
 export const PostOrAnteMeridiem = 'j';
 export const Day = 'k';
 export const DayOfTheMonth = 'l';
+export const NumberMonth = 'n';
 
 
 const SubToTypeIdentifierMap: {
@@ -25,6 +26,7 @@ const SubToTypeIdentifierMap: {
 } = {
   'MMMM': FullMonth,
   'MM': PartialMonth,
+  'Mo': NumberMonth,
   'YYYY': FullYear,
   'YY': PartialYear,
   'dddd': DayOfTheWeek,

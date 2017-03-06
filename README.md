@@ -1,5 +1,5 @@
 
-# Tinytime ⏰ 
+# Tinytime ⏰
 > A straightforward date and time formatter in <800b.
 
 <a href="https://www.npmjs.org/package/tinytime">
@@ -24,6 +24,7 @@ template.render(new Date());
 
  * `MMMM` - Full Month (September)
  * `MM` - Partial Month (Sep)
+ * `Mo` - Numeric Month (9)
  * `YYYY` - Full Year (1992)
  * `YY` - Partial Year (92)
  * `dddd` - Day of the Week (Monday)
