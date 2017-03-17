@@ -3,6 +3,7 @@
 import {
 FullMonth,
 PartialMonth,
+NumberMonth,
 FullYear,
 PartialYear,
 DayOfTheWeek,
@@ -104,6 +105,13 @@ export default function compiler(tokens: Array<Token>, date: Date, options: Tiny
         break;
       case FullMonth:
         compiled += months[month];
+        break;
+      case NumberMonth:
+        let mnth = month + 1;
+        if (options.padMonth) {
+          mnth = paddWithZeros(mnth);
+        }
+        compiled += mnth;
         break;
       case FullYear:
         compiled += year;
