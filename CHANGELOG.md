@@ -1,5 +1,5 @@
-<a name="0.2.3"></a>
-## [0.2.3](https://github.com/aweary/tinytime/compare/v0.2.1...v0.2.3) (2017-03-23)
+<a name="0.2.4"></a>
+## [0.2.4](https://github.com/aweary/tinytime/compare/v0.2.1...v0.2.4) (2017-03-23)
 
 
 ### Features
