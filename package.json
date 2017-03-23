@@ -12,7 +12,9 @@
     "minify": "make uglify",
     "build": "npm run rollup && npm run minify && gzip-size dist/tinytime.js | pretty-bytes",
     "test": "NODE_ENV=test flow && jest",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "publish": "np",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
@@ -20,9 +22,11 @@
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-flow-strip-types": "^6.21.0",
     "babel-preset-es2015": "^6.18.0",
+    "conventional-changelog-cli": "^1.3.1",
     "flow-bin": "^0.38.0",
     "gzip-size-cli": "^1.0.0",
     "jest": "^18.1.0",
+    "np": "^2.13.0",
     "pretty-bytes-cli": "^2.0.0",
     "rollup": "^0.41.4",
     "rollup-plugin-babel": "^2.7.1",
