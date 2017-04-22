@@ -69,3 +69,6 @@ function Time({ date }) {
   )
 }
 ```
+
+> Note: this could be done automatically with a fairly strightforward babel plugin if any wanted to build that...
+> Learn how to do that [here](https://www.youtube.com/watch?v=CFQBHy8RCpg)
