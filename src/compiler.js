@@ -52,7 +52,7 @@ const days: Array<Days> = [
 ]
 
 /**
- * Taks an integer and returns a string left padded with
+ * Takes an integer and returns a string left padded with
  * a zero to the left. Used to display minutes and hours (1:01:00PM);
  */
 function paddWithZeros(int: number) : string {
