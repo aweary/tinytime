@@ -20,7 +20,7 @@ template.render(new Date());
 // The time is 11:10:20PM.
 ```
 
-## Subsitutions
+## Substitutions
 
  * `MMMM` - Full Month (September)
  * `MM` - Partial Month (Sep)
@@ -45,7 +45,7 @@ template string again. That means its important that you aren't recreating the t
 
 Here's an example showing the right and wrong way to use tinytime with React.
 
-Dont do this:
+Don't do this:
 
 ```jsx
 function Time({ date }) {
