@@ -5,6 +5,7 @@
   "jsnext:main": "src/index.js",
   "main": "dist/tinytime.js",
   "umd:main": "dist/tinytime.umd.js",
+  "license": "MIT",
   "scripts": {
     "rollup:cjs": "NODE_ENV=production rollup -c rollup.config.js -m -f cjs -n $npm_package_amdName $npm_package_jsnext_main -o $npm_package_main",
     "rollup:umd": "NODE_ENV=production rollup -c rollup.config.js -m -f umd -n $npm_package_amdName $npm_package_jsnext_main -o dist/tinytime.umd.js",
