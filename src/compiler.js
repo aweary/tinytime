@@ -72,6 +72,22 @@ function suffix(int: number): string {
       : int + "th";
 }
 
+function getMonths(localization): Array<any> {
+  if (localization && localization.months) {
+    return localization.months;
+  }
+
+  return months;
+}
+
+function getDays(localization): Array<any> {
+  if (localization && localization.days) {
+    return localization.days;
+  }
+
+  return days;
+}
+
 /**
  * The compiler takes in our array of tokens returned from the parser
  * and returns the formed template. It just iterates over the tokens and
@@ -88,6 +104,7 @@ export default function compiler(tokens: Array<Token>, date: Date, options: Tiny
   const seconds = date.getSeconds();
   const minutes = date.getMinutes();
   const day = date.getDate();
+  const { localization } = options;
   let compiled = '';
   let index = 0;
   while (index < tokens.length) {
@@ -101,10 +118,10 @@ export default function compiler(tokens: Array<Token>, date: Date, options: Tiny
         compiled += suffix(day);
         break;
       case PartialMonth:
-        compiled += months[month].slice(0, 3);
+        compiled += getMonths(localization)[month].slice(0, 3);
         break;
       case FullMonth:
-        compiled += months[month];
+        compiled += getMonths(localization)[month];
         break;
       case NumberMonth:
         let mnth = month + 1;
@@ -120,7 +137,7 @@ export default function compiler(tokens: Array<Token>, date: Date, options: Tiny
         compiled += (year + '').slice(2);
         break;
       case DayOfTheWeek:
-        compiled += days[date.getDay() - 1];
+        compiled += getDays(localization)[date.getDay() - 1];
         break;
       case DayOfTheMonth:
         compiled += options.padDays ? paddWithZeros(day) : day
