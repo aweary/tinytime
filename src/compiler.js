@@ -72,16 +72,16 @@ function suffix(int: number): string {
       : int + "th";
 }
 
-function getMonths(localization): Array<any> {
-  if (localization && localization.months) {
+function getMonths(localization = {}): Array<any> {
+  if (localization.months) {
     return localization.months;
   }
 
   return months;
 }
 
-function getDays(localization): Array<any> {
-  if (localization && localization.days) {
+function getDays(localization = {}): Array<any> {
+  if (localization.days) {
     return localization.days;
   }
 
