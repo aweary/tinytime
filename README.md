@@ -72,4 +72,4 @@ function Time({ date }) {
 
 ### Babel Plugin
 
-Using [`babel-plugin-transform-tinytime`](npm.im/babel-plugin-transform-tinytime) you can resolve this efficency concern at compile time. 
+Using [`babel-plugin-transform-tinytime`](http://npm.im/babel-plugin-transform-tinytime) you can resolve this efficency concern at compile time. 
