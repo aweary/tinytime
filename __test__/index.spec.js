@@ -68,5 +68,8 @@ describe('tinytime', () => {
         'It was 9:07:30PM on September 24th, 1992.'
       )
     });
+    it('sundays', () => {
+      expect(tinytime('{dddd}').render(new Date('May 7, 2017'))).toEqual('Sunday')
+    });
   });
 });
