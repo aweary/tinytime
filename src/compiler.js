@@ -42,13 +42,13 @@ const months: Array<Month> = [
 ]
 
 const days: Array<Days> = [
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday",
 ]
 
 /**
@@ -120,7 +120,7 @@ export default function compiler(tokens: Array<Token>, date: Date, options: Tiny
         compiled += (year + '').slice(2);
         break;
       case DayOfTheWeek:
-        compiled += days[date.getDay() - 1];
+        compiled += days[date.getDay()];
         break;
       case DayOfTheMonth:
         compiled += options.padDays ? paddWithZeros(day) : day
