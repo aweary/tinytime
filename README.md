@@ -76,6 +76,10 @@ function Time({ date }) {
 }
 ```
 
-### Babel Plugin
+### Babel Plugins
 
-Using [`babel-plugin-transform-tinytime`](http://npm.im/babel-plugin-transform-tinytime) you can resolve this efficency concern at compile time. 
+Using one of the plugins below, you can resolve this efficency concern at compile time.
+
+[`babel-plugin-transform-tinytime`](http://npm.im/babel-plugin-transform-tinytime) - Hoists `tinytime` calls out of the JSX render scope.
+
+[`babel-plugin-tinytime`](https://www.npmjs.com/package/babel-plugin-tinytime) - Hoists `tinytime` calls out of the current scope, regardless if its inside JSX or a ordinary function scope. 
