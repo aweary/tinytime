@@ -1,6 +1,6 @@
 {
   "name": "tinytime",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "amdName": "tinytime",
   "jsnext:main": "src/index.js",
   "main": "dist/tinytime.js",
@@ -32,6 +32,7 @@
     "rollup": "^0.41.4",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-flow": "^1.1.1",
+    "standard-version": "^4.0.0",
     "uglify-js": "^2.7.5"
   }
 }
