@@ -24,7 +24,7 @@ template.render(new Date());
 
  * `MMMM` - Full Month (September)
  * `MM` - Partial Month (Sep)
- * `Mo` - Numeric Month (9)
+ * `Mo` - Numeric Month (9) <sup>1</sup>
  * `YYYY` - Full Year (1992)
  * `YY` - Partial Year (92)
  * `dddd` - Day of the Week (Monday)
@@ -35,6 +35,12 @@ template.render(new Date());
  * `mm` - Minutes (zero padded)
  * `ss` - Seconds (zero padded)
  * `a` - AM/PM
+ 
+ <sup>1</sup> - you get padded months (`09` instead of `9`) by passing in the `padMonth` option.
+ 
+ ```js
+ const template = tinytime('{Mo}', { padMonth: true })
+ ```
 
 
 ## Efficiency
