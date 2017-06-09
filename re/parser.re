@@ -29,50 +29,55 @@ let getSubstitution text =>
   | "mm" => Minutes
   | "ss" => Seconds
   | "a" => PostOrAnteMeridiem
-  | _ => [%bs.raw{| new Error("Unknown Substitution") |}];
+  | _ => [%bs.raw {| "" |}]
   };
 
 type token = {t: subsitution, v: string};
 
+let getNextCharacter chars position =>
+  Array.unsafe_get
+    chars
+    {
+      let oldPosition = !position;
+      position := !position + 1;
+      oldPosition
+    };
+
+let pushToken tokens token => ignore (Js.Array.push token tokens);
+
 let parse template => {
   let tokens: array token = [||];
+  let pushToken = pushToken tokens;
   let chars = Js.String.split "" template;
   let text = ref "";
   let position = ref 0;
   while (!position < Js.Array.length chars) {
-    let c = ref (Array.unsafe_get chars !position);
-    position := !position + 1;
-
+    let c = ref (getNextCharacter chars position);
+    switch !c {
     /**
      * A bracket indicates we're starting a subsitution. Any characters after this,
      * and before the next '}' will be considered part of the subsitution name.
      */
-    if (!c == "{") {
+    | "{" =>
       /* Push any usertext we've accumulated */
       if (!text != "") {
-        Js.Array.push {t: UserText, v: !text} tokens;
-        ()
-      } else {
-        ()
+        pushToken {t: UserText, v: !text}
       };
+      /* Reset any user text */
       text := "";
       let sub = ref "";
-      c := Array.unsafe_get chars !position;
-      position := !position + 1;
+      c := getNextCharacter chars position;
       while (!c != "}") {
         sub := !sub ^ !c;
-        c := Array.unsafe_get chars !position;
-        position := !position + 1
+        c := getNextCharacter chars position
       };
-      Js.Array.push {t: getSubstitution !sub, v: ""} tokens;
-      ()
-    } else {
-      text := !text ^ !c
+      pushToken {t: getSubstitution !sub, v: ""}
+    /* Any other character should be considered user text */
+    | _ => text := !text ^ !c
     }
   };
   if (!text != "") {
-    Js.Array.push {t: UserText, v: !text} tokens;
-    ()
+    pushToken {t: UserText, v: !text};
   };
   tokens
 };
