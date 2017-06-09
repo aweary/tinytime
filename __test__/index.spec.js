@@ -1,17 +1,17 @@
-import tinytime from '../src'
+const Tinytime = require('../lib/js/re/tinytime').parse
 
 // My birthday!
 const date = new Date('September 24, 1992 021:07:30');
 
 // Helper function to render template with the same date.
-const render = template => tinytime(template).render(date)
+const render = template => Tinytime(template).render(date)
 
-describe('tinytime', () => {
+describe('Tinytime', () => {
   it('should export a function', () => {
-    expect(typeof tinytime).toBe('function')
+    expect(typeof Tinytime).toBe('function')
   });
   it('should return a template object', () => {
-    const template = tinytime('The month is {MMMM}');
+    const template = Tinytime('The month is {MMMM}');
     expect(typeof template).toBe('object')
   });
   describe('rendering', () => {
@@ -28,7 +28,7 @@ describe('tinytime', () => {
       expect(render('{Mo}')).toEqual('9');
     });
     it('padded numeric months', () => {
-      const template = tinytime('{Mo}', { padMonth: true })
+      const template = Tinytime('{Mo}', { padMonth: true })
       const rendered = template.render(date);
       expect(rendered).toEqual('09');
     });
@@ -51,13 +51,13 @@ describe('tinytime', () => {
       expect(render('{H}:{mm}:{ss}')).toEqual('21:07:30');
     });
     it('padded hours', () => {
-      const template = tinytime('{h}', { padHours: true })
+      const template = Tinytime('{h}', { padHours: true })
       const rendered = template.render(date)
       expect(rendered).toEqual('09')
     })
     it('padded hours (24h)', () => {
       const date = new Date('September 24, 1992 09:07:30');
-      const template = tinytime('{H}', { padHours: true })
+      const template = Tinytime('{H}', { padHours: true })
       const rendered = template.render(date)
       expect(rendered).toEqual('09')
     })
@@ -69,7 +69,7 @@ describe('tinytime', () => {
       )
     });
     it('sundays', () => {
-      expect(tinytime('{dddd}').render(new Date('May 7, 2017'))).toEqual('Sunday')
+      expect(Tinytime('{dddd}').render(new Date('May 7, 2017'))).toEqual('Sunday')
     });
   });
 });
