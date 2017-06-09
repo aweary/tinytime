@@ -1,0 +1,13 @@
+{
+  "name": "tinytime",
+  "version": "0.1.0",
+  "sources": [
+    "re"
+  ],
+  "reason" : { "react-jsx" : true},
+  "bs-dependencies" : [
+      // add your bs-dependencies here 
+      "bs-webapi"
+  ],
+  "package-specs": ["es6"]
+}
