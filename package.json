@@ -22,6 +22,7 @@
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-flow-strip-types": "^6.21.0",
     "babel-preset-es2015": "^6.18.0",
+    "bs-platform": "^1.7.4",
     "conventional-changelog-cli": "^1.3.1",
     "flow-bin": "^0.38.0",
     "gzip-size-cli": "^1.0.0",
@@ -33,5 +34,8 @@
     "rollup-plugin-flow": "^1.1.1",
     "standard-version": "^4.0.0",
     "uglify-js": "^2.7.5"
+  },
+  "devDependencies": {
+    "bs-webapi": "^0.4.1"
   }
 }
