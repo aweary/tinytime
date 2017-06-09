@@ -1,0 +1,1 @@
+type renderOptions = Js.t {. padMonth : bool, padDays : bool, padHours : bool};
