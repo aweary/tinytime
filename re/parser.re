@@ -1,18 +1,4 @@
-type subsitution =
-  | UserText
-  | FullMonth
-  | PartialMonth
-  | FullYear
-  | PartialYear
-  | DayOfTheWeek
-  | Hour
-  | Minutes
-  | Seconds
-  | PostOrAnteMeridiem
-  | Day
-  | DayOfTheMonth
-  | NumberMonth
-  | Hour24;
+open Types;
 
 let getSubstitutionType text =>
   switch text {
@@ -32,7 +18,6 @@ let getSubstitutionType text =>
   | _ => raise (Js.Exn.raiseReferenceError "foo")
   };
 
-type token = {t: subsitution, v: string};
 let pushToken tokens token => ignore (Js.Array.push token tokens);
 
 let rec getSubstitution (characters, acc) =>

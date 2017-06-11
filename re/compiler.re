@@ -2,11 +2,11 @@ open Parser;
 
 open Types;
 
-/*Avoid pulling in pervasives*/
+/* Avoid pulling in pervasives */
 external string_of_int : int => string = "%identity";
 
 let months = [|
-  "January",
+  "Januarys",
   "Febuary",
   "March",
   "April",
