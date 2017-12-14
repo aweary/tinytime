@@ -72,3 +72,15 @@ function Time({ date }) {
 
 > Note: this could be done automatically with a fairly strightforward babel plugin if any wanted to build that...
 > Learn how to do that [here](https://www.youtube.com/watch?v=CFQBHy8RCpg)
+
+
+## Localization
+tinytime supports localization. Which means you are able to replace months and days by injecting two arrays to the object passed to the tinytime function. Norwegian is used in the example. Default values if localization object is not added is English.
+```js
+const render = template => tinytime(template, {
+   localization: {
+     months: ['januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember'],
+     days: ['mandag', 'tirsdag', 'onsdag', 'torsdag', 'fredag', 'lørdag', 'søndag'],
+   }
+})
+```
