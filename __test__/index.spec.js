@@ -72,4 +72,13 @@ describe('tinytime', () => {
       expect(tinytime('{dddd}').render(new Date('May 7, 2017'))).toEqual('Sunday')
     });
   });
+  describe('invalid dates', () => {
+    it('allows a string value fallback', () => {
+      const date = new Date('Invalid');
+      const template = tinytime('{H}', { invalid: 'Unknown'  });
+      const rendered = template.render(date);
+
+      expect(rendered).toEqual('Unknown');
+    });
+  });
 });
