@@ -28,18 +28,23 @@ template.render(new Date());
  * `YYYY` - Full Year (1992)
  * `YY` - Partial Year (92)
  * `dddd` - Day of the Week (Monday)
- * `DD` - Day of the Month (24)
- * `Do` - Day (24th)
- * `h` - Hours - 12h format
- * `H` - Hours - 24h format
+ * `DD` - Day of the Month (8) <sup>1</sup>
+ * `Do` - Day (8th)
+ * `h` - Hours - 12h format <sup>1</sup>
+ * `H` - Hours - 24h format <sup>1</sup>
  * `mm` - Minutes (zero padded)
  * `ss` - Seconds (zero padded)
  * `a` - AM/PM
  
- <sup>1</sup> - you get padded months (`09` instead of `9`) by passing in the `padMonth` option.
+ <sup>1</sup> - you get padded values (e.g. `09` instead of `9`) by passing the following options:
+ * `padMonth` for hours
+ * `padMonth` for days
+ * `padMonth` for months
  
  ```js
- const template = tinytime('{Mo}', { padMonth: true })
+ const opts = { padHours: true, padMonth: true, padDays: true};
+ const template = tinytime('{YYYY}-{Mo}-{DD} {h}:{mm}:{ss}', opts);
+ // 1992-09-08 09:07:30
  ```
 
 
