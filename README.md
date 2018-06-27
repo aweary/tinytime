@@ -37,8 +37,8 @@ template.render(new Date());
  * `a` - AM/PM
  
  <sup>1</sup> - you get padded values (e.g. `09` instead of `9`) by passing the following options:
- * `padMonth` for hours
- * `padMonth` for days
+ * `padHours` for hours
+ * `padDays` for days
  * `padMonth` for months
  
  ```js
