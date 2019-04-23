@@ -24,11 +24,11 @@ import type { TinyTimeOptions } from './index'
  * removed during build.
  */
 type Days = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday"
-type Month =  "January" | "Febuary" | "March" | "April" | "May" | "June" | "July" | "August" | "September" | "October" | "November" | "December"
+type Month =  "January" | "February" | "March" | "April" | "May" | "June" | "July" | "August" | "September" | "October" | "November" | "December"
 
 const months: Array<Month> = [
   "January",
-  "Febuary",
+  "February",
   "March",
   "April",
   "May",
