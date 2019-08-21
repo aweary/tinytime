@@ -82,6 +82,9 @@ function suffix(int: number): string {
  * @returns {String}
  */
 export default function compiler(tokens: Array<Token>, date: Date, options: TinyTimeOptions): string {
+  if (options.hasOwnProperty('invalid') && isNaN(date)) {
+    return options.invalid;
+  }
   const month = date.getMonth();
   const year = date.getFullYear();
   const hours = date.getHours();
