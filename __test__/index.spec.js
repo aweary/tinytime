@@ -1,7 +1,7 @@
 import tinytime from '../src'
 
 // My birthday!
-const date = new Date('September 24, 1992 021:07:30');
+const date = new Date('September 8, 1992 021:07:30');
 
 // Helper function to render template with the same date.
 const render = template => tinytime(template).render(date)
@@ -16,7 +16,7 @@ describe('tinytime', () => {
   });
   describe('rendering', () => {
     it('should let you render with a date/time', () => {
-      expect(render('{h}:{mm}:{ss}{a} on a {dddd}.')).toEqual('9:07:30PM on a Thursday.');
+      expect(render('{h}:{mm}:{ss}{a} on a {dddd}.')).toEqual('9:07:30PM on a Tuesday.');
     });
     it('full months', () => {
       expect(render('{MMMM}')).toEqual('September');
@@ -39,10 +39,18 @@ describe('tinytime', () => {
       expect(render('{YY}')).toEqual('92');
     })
     it('days of the week', () => {
-      expect(render('{dddd}')).toEqual('Thursday');
+      expect(render('{dddd}')).toEqual('Tuesday');
     });
-    it('day of the month', () => {
-      expect(render('{Do}')).toEqual('24th');
+    it('days of the month', () => {
+      expect(render('{DD}')).toEqual('8');
+    });
+    it('padded days of the month', () => {
+      const template = tinytime('{DD}', { padDays: true });
+      const rendered = template.render(date);
+      expect(rendered).toEqual('08');
+    });
+    it('days', () => {
+      expect(render('{Do}')).toEqual('8th');
     });
     it('times', () => {
       expect(render('{h}:{mm}:{ss}{a}')).toEqual('9:07:30PM');
@@ -65,7 +73,7 @@ describe('tinytime', () => {
       expect(render(
         'It was {h}:{mm}:{ss}{a} on {MMMM} {Do}, {YYYY}.'
       )).toEqual(
-        'It was 9:07:30PM on September 24th, 1992.'
+        'It was 9:07:30PM on September 8th, 1992.'
       )
     });
     it('sundays', () => {
