@@ -41,6 +41,9 @@ describe('tinytime', () => {
     it('days of the week', () => {
       expect(render('{dddd}')).toEqual('Thursday');
     });
+    it('partial day of the week', () => {
+      expect(render('{dd}')).toEqual('Thu');
+    });
     it('day of the month', () => {
       expect(render('{Do}')).toEqual('24th');
     });

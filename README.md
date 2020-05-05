@@ -28,6 +28,7 @@ template.render(new Date());
  * `YYYY` - Full Year (1992)
  * `YY` - Partial Year (92)
  * `dddd` - Day of the Week (Monday)
+ * `dd` - Partial Day of the Week (Mon)
  * `DD` - Day of the Month (24)
  * `Do` - Day (24th)
  * `h` - Hours - 12h format

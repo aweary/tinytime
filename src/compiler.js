@@ -15,6 +15,7 @@ PostOrAnteMeridiem,
 UserText,
 Day,
 DayOfTheMonth,
+PartialDayOfTheWeek,
 } from './subs';
 import type { Token } from './parser'
 import type { TinyTimeOptions } from './index'
@@ -118,6 +119,9 @@ export default function compiler(tokens: Array<Token>, date: Date, options: Tiny
         break;
       case PartialYear:
         compiled += (year + '').slice(2);
+        break;
+      case PartialDayOfTheWeek:
+        compiled += days[date.getDay()].slice(0, 3);
         break;
       case DayOfTheWeek:
         compiled += days[date.getDay()];

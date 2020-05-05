@@ -20,6 +20,7 @@ export const Day = 'k';
 export const DayOfTheMonth = 'l';
 export const NumberMonth = 'n';
 export const Hour24 = 'm';
+export const PartialDayOfTheWeek = 'o';
 
 const SubToTypeIdentifierMap: {
   [abbreviation: string]: string
@@ -30,6 +31,7 @@ const SubToTypeIdentifierMap: {
   'YYYY': FullYear,
   'YY': PartialYear,
   'dddd': DayOfTheWeek,
+  'dd': PartialDayOfTheWeek,
   'DD': DayOfTheMonth,
   'Do': Day,
   'h': Hour,
